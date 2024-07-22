@@ -1,0 +1,20 @@
+2024-07-22 10:53:32 - Get articles
+2024-07-22 10:53:32 - ErrorResponse{message='null'}
+2024-07-22 10:53:32 - Get article by id 4
+2024-07-22 10:53:32 - Optional[{"Title": "test looking for id", "Content": "Content test", "Author": { "username": "username Test", "lastname": "lastname Test"}}]
+2024-07-22 10:53:32 - Get articles
+2024-07-22 10:53:32 - [{"Title": "Title Test", "Content": "Conten test", "Author": { "username": "username Test", "lastname": "lastname Test"}}, {"Title": "Title Test", "Content": "Conten test", "Author": { "username": "username Test", "lastname": "lastname Test"}}]
+2024-07-22 10:54:34 - Getting marvel character with id 1009368
+2024-07-22 10:54:46 - [Iron Man]
+2024-07-22 11:46:07 - Get article by authorName Ricardo
+2024-07-22 11:46:07 - [{"Title": "Title Test", "Content": "Content test", "Author": { "username": "Ricardo", "lastname": "lastname Test"}}]
+2024-07-22 11:46:07 - Get articles
+2024-07-22 11:46:07 - [{"Title": "Title Test", "Content": "Conten test", "Author": { "username": "username Test", "lastname": "lastname Test"}}]
+2024-07-22 11:46:07 - Get articles
+2024-07-22 11:46:07 - ErrorResponse{message='null'}
+2024-07-22 11:46:07 - Get article by id 4
+2024-07-22 11:46:07 - Optional[{"Title": "test looking for id", "Content": "Content test", "Author": { "username": "username Test", "lastname": "lastname Test"}}]
+2024-07-22 11:46:07 - Get articles
+2024-07-22 11:46:07 - [{"Title": "Title Test", "Content": "Conten test", "Author": { "username": "username Test", "lastname": "lastname Test"}}, {"Title": "Title Test", "Content": "Conten test", "Author": { "username": "username Test", "lastname": "lastname Test"}}]
+2024-07-22 11:46:08 - Getting marvel character with id 1009368
+2024-07-22 11:46:22 - [Iron Man]
