@@ -42,9 +42,9 @@ public class ArticleTest {
 
         User author = userRepository.save(new User("username Test","lastname Test"));
 
-        articleRepository.save(new Article("Title Test","Conten test",author));
+        articleRepository.save(new Article("Title Test","Content test",author));
 
-        mockMvc.perform(MockMvcRequestBuilders.get("/articles").header("api-key","apiKeyTest"))
+        mockMvc.perform(MockMvcRequestBuilders.get("/articles").header("apikey","12341234"))
                 .andExpect(MockMvcResultMatchers.status().isOk())
                 .andExpect(MockMvcResultMatchers.jsonPath("$.length()").value(1));
     }
@@ -53,17 +53,17 @@ public class ArticleTest {
 
         User author = userRepository.save(new User("username Test","lastname Test"));
 
-        articleRepository.save(new Article("Title Test","Conten test",author));
-        articleRepository.save(new Article("Title Test","Conten test",author));
+        articleRepository.save(new Article("Title Test","Content test",author));
+        articleRepository.save(new Article("Title Test","Content test",author));
 
-        mockMvc.perform(MockMvcRequestBuilders.get("/articles").header("api-key","apiKeyTest"))
+        mockMvc.perform(MockMvcRequestBuilders.get("/articles").header("apikey","12341234"))
                 .andExpect(MockMvcResultMatchers.status().isOk())
                 .andExpect(MockMvcResultMatchers.jsonPath("$.length()").value(2));
     }
 
 
     @Test
-    public void testGetAllArticlesCountWithoutApiKeyAndReceiveBadRequestException() throws Exception {
+    public void testGetAllArticlesCountWithoutApiKeyAndReceiveUnauthorized() throws Exception {
 
 
         mockMvc.perform(MockMvcRequestBuilders.get("/articles"))
@@ -71,10 +71,10 @@ public class ArticleTest {
     }
 
     @Test
-    public void testGetAllArticlesCountWithBadApiKeyAndReceiveBadRequestException() throws Exception {
+    public void testGetAllArticlesCountWithBadApiKeyAndReceiveUnauthorized() throws Exception {
 
 
-        mockMvc.perform(MockMvcRequestBuilders.get("/articles").header("api-key","TestApiKey"))
+        mockMvc.perform(MockMvcRequestBuilders.get("/articles").header("apikey","1234"))
                 .andExpect(MockMvcResultMatchers.status().is4xxClientError());
 
 
@@ -89,7 +89,7 @@ public class ArticleTest {
 
         articleRepository.save(article);
 
-        mockMvc.perform(MockMvcRequestBuilders.get("/articles/find/{id}",article.id))
+        mockMvc.perform(MockMvcRequestBuilders.get("/articles/find/{id}",article.id).header("apikey","12341234"))
                 .andExpect(MockMvcResultMatchers.status().isOk())
                 .andExpect(MockMvcResultMatchers.jsonPath("$.title").value("test looking for id"));
     }
@@ -105,7 +105,7 @@ public class ArticleTest {
         articleRepository.save(new Article("Title Test","Content test",authorRick));
 
 
-        mockMvc.perform(MockMvcRequestBuilders.get("/articles/findByAuthor/{author}",authorRicardo.username))
+        mockMvc.perform(MockMvcRequestBuilders.get("/articles/findByAuthor/{author}",authorRicardo.username).header("apikey","12341234"))
                 .andExpect(MockMvcResultMatchers.status().isOk())
                 .andExpect(MockMvcResultMatchers.jsonPath("$.length()").value(1))
                 .andExpect(MockMvcResultMatchers.jsonPath("$[0].author.username").value("Ricardo"));

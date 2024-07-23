@@ -22,9 +22,9 @@ public class ArticleController {
 
 
     @GetMapping("/articles")
-    public List<Article> article(@RequestHeader("api-key") String apiKey) {
+    public List<Article> article() {
         logger.info("Get articles");
-        List<Article> response = articleService.findAll(apiKey);
+        List<Article> response = articleService.findAll();
         logger.info(response.toString());
         return response;
 

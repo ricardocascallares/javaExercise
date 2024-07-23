@@ -42,7 +42,7 @@ public class UserTest {
 
         String mockUserJson = "{\"username\": \"usernameTest\",\n \"lastname\": \"lastnameTest\"\n }";
 
-        mockMvc.perform(MockMvcRequestBuilders.post("/users")
+        mockMvc.perform(MockMvcRequestBuilders.post("/users").header("apikey","12341234")
                         .content(mockUserJson)
                         .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(MockMvcResultMatchers.status().isOk());

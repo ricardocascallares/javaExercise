@@ -16,15 +16,11 @@ public class ArticleService {
     @Autowired
     public ArticleRepository articleRepository;
 
-    public List<Article> findAll(String apiKey) {
-        if (apiKey.equals("apiKeyTest")) {
-            Iterable<Article> articles = articleRepository.findAll();
+    public List<Article> findAll( ) {
+        Iterable<Article> articles = articleRepository.findAll();
             List<Article> articleList = new ArrayList<>();
             articles.forEach(articleList::add);
             return articleList;
-        }else{
-            throw new RuntimeException();
-        }
     }
 
     public Article Add(Article article){

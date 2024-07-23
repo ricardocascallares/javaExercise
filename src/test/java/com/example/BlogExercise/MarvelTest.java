@@ -69,7 +69,7 @@ public class MarvelTest {
     @Test
     public void getIronMAnMarvelCharacterAndReceiveTheInformation() throws Exception {
 
-        mockMvc.perform(MockMvcRequestBuilders.get("/integrations/marvel/characters/1009368"))
+        mockMvc.perform(MockMvcRequestBuilders.get("/integrations/marvel/characters/1009368").header("apikey","12341234"))
                 .andExpect(MockMvcResultMatchers.status().isOk())
                 .andExpect(MockMvcResultMatchers.jsonPath("$[0].name").value("Iron Man"));
     }
